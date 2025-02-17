@@ -1,0 +1,50 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Supplier {
+  id: Int!
+  name: String!
+  website: String
+}
+
+type Part {
+  id: Int!
+  partNumber: String!
+  name: String!
+  description: String!
+  stock: Int!
+  leadTime: Int
+  supplier: Supplier!
+}
+
+type Query {
+  getAllSuppliers: [Supplier!]!
+  getSupplier(id: Int!): Supplier!
+  getAllParts: [Part!]!
+  getPart(id: Int!): Part!
+}
+
+type Mutation {
+  createSupplier(input: CreateSupplierDto!): Supplier!
+  createPart(input: CreatePartDto!): Part!
+}
+
+input CreateSupplierDto {
+  name: String!
+  website: String
+}
+
+input CreatePartDto {
+  partNumber: String!
+  name: String!
+  description: String!
+  stock: Int!
+  leadTime: Int
+  supplier: SupplierInput!
+}
+
+input SupplierInput {
+  id: Float!
+  name: String!
+}
